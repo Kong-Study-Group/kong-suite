@@ -9,14 +9,9 @@ RUN ["yum", "install", "-y", "openssh-server", "openssh-clients", "openssh"]
 RUN ["yum", "install", "-y", "supervisor"]
 RUN ["yum", "install", "-y", "lua-devel"]
 RUN ["yum", "install", "-y", "luarocks"]
-RUN ["yum", "install", "-y", "git"]
-RUN ["yum", "install", "-y", "vim"]
-RUN ["yum", "install", "-y", "redis"]
 RUN ["yum", "install", "-y", "wget"]
 RUN ["yum", "install", "-y", "postgresql"]
 RUN ["yum", "install", "-y", "deltarpm"]
-RUN ["yum", "groupinstall", "-y", "development", "tools"]
-RUN ["yum", "install", "-y", "kong-community-edition-0.11.1.*.noarch.rpm --nogpgcheck"]
 
 RUN ["mkdir", "-p", "/root/.ssh"]
 RUN ["/usr/bin/ssh-keygen", "-A"]
@@ -30,7 +25,9 @@ COPY ./db.sh /root/
 COPY ./db-test.sh /root/
 COPY ./git.sh /root/
 COPY ./pgpass /root/.pgpass
+COPY ./kong-community-edition-0.11.0.el7.noarch.rpm /root/
 
+RUN ["yum", "install", "-y", "/root/kong-community-edition-0.11.0.el7.noarch.rpm --nogpgcheck"]
 RUN ["chmod", "600", "/root/.pgpass"]
 RUN ["chmod", "600", "/root/.ssh/id_rsa"]
 RUN ["chmod", "600", "/root/.ssh/authorized_keys"]
