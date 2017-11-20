@@ -25,9 +25,8 @@ COPY ./db.sh /root/
 COPY ./db-test.sh /root/
 COPY ./git.sh /root/
 COPY ./pgpass /root/.pgpass
-COPY ./kong-community-edition-0.11.0.el7.noarch.rpm /root/
 
-RUN ["yum", "install", "-y", "/root/kong-community-edition-0.11.0.el7.noarch.rpm --nogpgcheck"]
+RUN ["yum", "install", "-y", "http://oo2fuseka.bkt.clouddn.com/kong-community-edition-0.11.1.el7.noarch.rpm"]
 RUN ["chmod", "600", "/root/.pgpass"]
 RUN ["chmod", "600", "/root/.ssh/id_rsa"]
 RUN ["chmod", "600", "/root/.ssh/authorized_keys"]
