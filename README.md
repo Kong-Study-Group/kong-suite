@@ -2,7 +2,7 @@
 
 Kong Suit, out-of-the-box, SSH Server for Docker containers
 
-* Development environment
+* Runtime environment
   * CentOS 7.3.1611
     * kong 0.11.1
   * PostgreSQL 9.6.2
