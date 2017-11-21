@@ -1,4 +1,4 @@
-# kong-dev-kit
+# kong-suite
 
 Kong Suit, out-of-the-box, SSH Server for Docker containers
 
@@ -11,8 +11,9 @@ Kong Suit, out-of-the-box, SSH Server for Docker containers
 ## Depends
 You must install docker and docker-compose
 
-* docker 17.06.0-ce+
-* docker-compose 1.12.0+
+* docker-machine version 0.13.0, build 9ba6da9
+* docker version 17.10.0-ce, build f4ffd25
+* docker-compose version 1.17.1, build 6d101fb
 
 [INSTALL](https://github.com/WALL-E/static)
 
@@ -23,8 +24,6 @@ You must install docker and docker-compose
 # docker-compose build
 
 # docker-compose up -d
-
-# docker-compose exec kong kong start
 ```
 
 Now, Kong is running
