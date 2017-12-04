@@ -25,12 +25,14 @@ COPY ./db.sh /root/
 COPY ./db-test.sh /root/
 COPY ./git.sh /root/
 COPY ./pgpass /root/.pgpass
+COPY ./install_plugins.sh /root/
 
 RUN ["yum", "install", "-y", "http://xxx.bkt.clouddn.com/kong-community-edition-0.11.2.el7.noarch.rpm"]
 RUN ["chmod", "600", "/root/.pgpass"]
 RUN ["chmod", "600", "/root/.ssh/id_rsa"]
 RUN ["chmod", "600", "/root/.ssh/authorized_keys"]
 RUN ["/root/init_dev.sh"]
+RUN ["/root/install_plugins.sh"]
 
 EXPOSE 22
 EXPOSE 8000
